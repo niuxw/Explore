@@ -1,0 +1,131 @@
+
+@url = http://localhost:80/api
+@json = Content-Type: application/json
+
+
+
+
+### show all users
+get {{url}}/users
+
+### get all posts   
+get {{url}}/posts
+
+
+
+### get messages
+get {{url}}/messages
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYmYxMGIzZWQ3ZDk5NTRlMzM4YjE2MCIsImlhdCI6MTU3MjgwMjc0MX0.oqpCCqdQr33GQ1VhdAOFikoPMZZRdbHR1_okhHv0OPk
+{{json}}
+
+{
+    "user" : "user2"
+}
+
+
+### message 
+post {{url}}/send
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYmYxMGIzZWQ3ZDk5NTRlMzM4YjE2MCIsImlhdCI6MTU3MjgwMjc0MX0.oqpCCqdQr33GQ1VhdAOFikoPMZZRdbHR1_okhHv0OPk
+
+
+### post something here
+post {{url}}/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYmVmYWIwZjJiZDA5NDdiMjZkNzM3YiIsImlhdCI6MTU3Mjc5NzEwN30.JDAa8kpteSyE-7ko3WoQEH7M_QMgrSnFAzhrCTBW8Rg
+{{json}}
+
+{
+    "title" : "test post 1",
+    "body" : "test post 1 body",
+    "region" : "north",
+    "payRate" : 5
+}
+
+### edit the post 
+post {{url}}/editPost
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYmVmYWIwZjJiZDA5NDdiMjZkNzM3YiIsImlhdCI6MTU3Mjc5NzEwN30.JDAa8kpteSyE-7ko3WoQEH7M_QMgrSnFAzhrCTBW8Rg
+{{json}}
+
+{
+    "_id" : "5dbefacbf2bd0947b26d737c",
+    "title": "edited title",
+    "body": "edited body",
+    "region": "edited region",
+    "payRate": 0
+}
+
+### register
+post {{url}}/register
+{{json}}
+
+{
+    "username" : "user3",
+    "password" : "123",
+    "email" : "user3@test.com"
+}
+
+### login 
+post {{url}}/login
+{{json}}
+
+{
+    "username" : "user2",
+    "password" : "123"
+}
+
+
+
+
+### Get person info
+get {{url}}/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYzA5MDVkZDhjMzhjNjkwNzliZTJmMyIsImlhdCI6MTU3MjkwMDk1OCwiZXhwIjoxNTcyOTAwOTc4fQ.byjnH3jcFfUCTu5uGFUaEY4zRTnJnnXRKKku2L1eO1s
+
+
+###update person info
+post {{url}}/update
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYTUxMmQxZjM5ZGFkMjViMjY2MjZhYSIsImlhdCI6MTU3MTg0ODM3NX0.iQrXSHkdArCq0HmrlDNWTi7BWgkx5_LMkFXlT8zDRU0
+{{json}}
+
+{
+    "region" : "blablabla"
+}
+
+
+###update person password
+post {{url}}/changePwd
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYmEwYmEyM2NkZDJkY2Y1Njg4ZmY0YiIsImlhdCI6MTU3MjQ3Mzc2NX0.YTijPU9-lOxUMMPI6i067v8Wwc-n5zs7BOSS-gZlAyo
+{{json}}
+
+{
+    "password" : "234"
+}
+
+
+
+### 
+post {{url}}/send
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDFkY2U0MmYxNTUxMjI0ZDQxOWFlYiIsImlhdCI6MTU3NDAzODM0MywiZXhwIjoxNTc0MTI0NzQzfQ.ujOnrDeAtG1Fvsx8YgFwPUEBZh1kgNV825CWL20ea-I
+{{json}}
+
+{
+    "username":"user1",
+    "message":"hello to user2"
+}
+
+### 
+post {{url}}/send
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDFkY2RlMmYxNTUxMjI0ZDQxOWFlYSIsImlhdCI6MTU3NDAzNDY5MSwiZXhwIjoxNTc0MTIxMDkxfQ.1DlQj_VP4vPNT_HXU8iMCJkxKxYEAA4FUbtKRIlscqU
+{{json}}
+
+{
+    "username":"user3",
+    "message":"hello to user3"
+}
+
+###
+post {{url}}/messages
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDFkY2U0MmYxNTUxMjI0ZDQxOWFlYiIsImlhdCI6MTU3NDAzODM0MywiZXhwIjoxNTc0MTI0NzQzfQ.ujOnrDeAtG1Fvsx8YgFwPUEBZh1kgNV825CWL20ea-I
+{{json}}
+
+{
+    "username":"user1"
+}
